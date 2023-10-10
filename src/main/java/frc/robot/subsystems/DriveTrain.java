@@ -22,4 +22,10 @@ public class DriveTrain extends SubsystemBase {
   public void periodic() {
     // This method will be called once per scheduler run
   }
-}
+}    config.peakCurrentLimit = 40; 
+config.peakCurrentDuration = 1500; 
+config.continuousCurrentLimit = 30; 
+leftFrontMotor.configAllSettings(config); 
+leftBackMotor.configAllSettings(config);
+rightFrontMotor.configAllSettings(config); /
+rightBackMotor.configAllSettings(config);
