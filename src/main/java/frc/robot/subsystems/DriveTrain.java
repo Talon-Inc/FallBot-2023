@@ -9,10 +9,11 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveTrain extends SubsystemBase {
-  TalonSRX leftFrontMotor;
-  TalonSRX leftBackMotor;
-  TalonSRX rightFrontMotor;
-  TalonSRX rightBackMotor;
+  /** change device numbers later */
+  private final TalonSRX leftFrontMotor = new TalonSRX(0);
+  private final TalonSRX leftBackMotor = new TalonSRX(0);
+  private final TalonSRX rightFrontMotor = new TalonSRX(0);
+  private final TalonSRX rightBackMotor = new TalonSRX(0);
   /** Creates a new DriveTrain. */
   public DriveTrain() {
   
