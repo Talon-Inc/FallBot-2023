@@ -4,18 +4,18 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveTrain extends SubsystemBase {
-  TalonSRX leftFrontMotor;
-  TalonSRX leftBackMotor;
-  TalonSRX rightFrontMotor;
-  TalonSRX rightBackMotor;
+  private final WPI_TalonSRX leftFrontMotor = new WPI_TalonSRX(0);
+  private final WPI_TalonSRX leftBackMotor = new WPI_TalonSRX(0);
+  private final WPI_TalonSRX rightFrontMotor = new WPI_TalonSRX(0);
+  private final WPI_TalonSRX rightBackMotor = new WPI_TalonSRX(0);
   /** Creates a new DriveTrain. */
   public DriveTrain() {
-  
+    
   }
 
   @Override
