@@ -16,6 +16,13 @@ import edu.wpi.first.wpilibj.drive.RobotDriveBase.MotorType;
  */
 public final class Constants {
   public static class OperatorConstants {
+    // drive constants
     public static final int kDriverControllerPort = 0;
+    public static final int current_limit = 0;
+    public static final int leftFrontMotor_port = 0;
+    public static final int rightFrontMotor_port = 0;
+    public static final int leftBackMotor_port = 0;
+    public static final int rightBackMotor_port = 0;
+    public static final int Drive_current = 0;
   }
 }
