@@ -19,6 +19,7 @@ public final class Constants {
     public static final int kFrontRightCanId = 1;
     public static final int kBackRightCanId = 3;
     public static final double kFactor = 1;
+    public static final double kTurnFactor = .5;
   }
   
   public static class OperatorConstants {
