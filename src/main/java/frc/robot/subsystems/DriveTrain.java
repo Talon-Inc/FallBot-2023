@@ -49,6 +49,19 @@ public class DriveTrain extends SubsystemBase {
     m_differentialDrive.arcadeDrive(moveSpeed, rotateSpeed);
   }
 
+  public void setLeftMotors(double speed) {
+    m_leftMotors.set(speed);
+  }
+
+  public void setRightMotors(double speed) {
+    m_rightMotors.set(speed);
+  }
+
+  public void stop() {
+    setLeftMotors(0);
+    setRightMotors(0);
+  }
+
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

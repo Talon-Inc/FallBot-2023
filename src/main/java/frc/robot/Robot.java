@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
  */
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
+  private Command m_teleopDrive; 
 
   private RobotContainer m_robotContainer;
 
@@ -77,11 +78,17 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+    m_teleopDrive = m_robotContainer.getDrive();
   }
 
   /** This function is called periodically during operator control. */
   @Override
-  public void teleopPeriodic() {}
+  public void teleopPeriodic() {
+    if (m_teleopDrive != null) {
+      m_teleopDrive.update();
+      m_teleopDrive.beforeStarting(m_autonomousCommand).schedule();
+    }
+  }
 
   @Override
   public void testInit() {
