@@ -5,19 +5,36 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.InvertType;
+import com.ctre.phoenix.motorcontrol.TalonSRXControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRXConfiguration;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveTrain extends SubsystemBase {
+  private static final double FACTOR = 0;
   private final WPI_TalonSRX leftFrontMotor = new WPI_TalonSRX(1);
   private final WPI_TalonSRX leftBackmotor = new WPI_TalonSRX(2);
   private final WPI_TalonSRX rightFrontmotor = new WPI_TalonSRX(3);
   private final WPI_TalonSRX rightBackmotor = new WPI_TalonSRX(4);
   private DifferentialDrive Drive = null;
+
   /** Creates a new DriveTrain. */
   public DriveTrain() {
+    TalonSRXConfiguration config = new TalonSRXConfiguration();
+    config.peakCurrentLimit = 40; 
+    config.peakCurrentDuration = 1500; 
+    config.continuousCurrentLimit = 30; 
+    leftFrontMotor.configAllSettings(config); 
+    leftBackmotor.configAllSettings(config); 
+    rightFrontmotor.configAllSettings(config); 
+    rightBackmotor.configAllSettings(config); 
+
+    leftFrontMotor.set(TalonSRXControlMode.PercentOutput, FACTOR); 
+    leftBackmotor.set(TalonSRXControlMode.PercentOutput, FACTOR); 
+    rightFrontmotor.set(TalonSRXControlMode.PercentOutput, FACTOR);
+    rightBackmotor.set(TalonSRXControlMode.PercentOutput, FACTOR);
     leftFrontMotor.configFactoryDefault();
     leftBackmotor.configFactoryDefault();
     rightFrontmotor.configFactoryDefault();
@@ -48,6 +65,6 @@ public class DriveTrain extends SubsystemBase {
 
   @Override
   public void periodic() {
-    // This method will be called once per scheduler run
+    
   }
 }
